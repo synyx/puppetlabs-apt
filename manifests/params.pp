@@ -83,10 +83,11 @@ class apt::params {
 
   case $facts['os']['name']{
     'Debian': {
-          $backports = {
-            'location' => 'http://deb.debian.org/debian',
-            'repos'    => 'main contrib non-free',
-          }
+      $backports = {
+        'location' => 'http://deb.debian.org/debian',
+        'repos'    => 'main contrib non-free',
+        'key'      => 'A1BD8E9D78F7FE5C3E65D8AF8B48AD6246925553',
+      }
       $ppa_options = undef
       $ppa_package = undef
       if versioncmp($facts['os']['release']['major'], '9') >= 0 {
